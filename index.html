@@ -1,0 +1,89 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Friday Night Drinking Game!</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
+    
+</head>
+
+<body>
+
+    <h1><strong>Saturday Night!</strong></h1>
+    <h2><strong>Congratulations, you've made it to the weekend! To celebrate, you're hitting up the city going to different bars and drinking with friends. Throughout the night you will be given a choice of various beverages to get you get you in the perfect state of mind for fun. 
+        Be careful cautious of your beverage consumption! If you consume to much alcohol you'll be too drunk to function. If you do not consume enough, you won't be in the right state of mind to have fun.</strong></h2>
+    <p>Directions: </p>
+
+    <!-- Formatting -->
+    <!-- Create a Jumbotron to list out the Directions
+    Create a Jumbotron centered to show the scores Wins, Loses, Computer Score and then Your Score
+    Use Bootstrap and created a row of 5 cards with a picture of each drink -->
+
+   
+
+    <p>Successful Nights!: <span id="wins"></span></p>
+    <p>Unsuccessful Nights: <span id="loses"></span></p>
+
+
+    <p>Guesses Left: <span id="guessesLeft"></span></p>
+    <p>Letters Guessed: <span id="guesses"></span></p>
+
+    <img src="./kazaam.jpg" width=600px height=700px>
+
+   
+
+    <script>
+       
+        // Drink Variables: 
+        //      Local IPA
+            var localIPA = drinkValue.charAt(drinkValueIndex);
+        //      Old Fashioned
+            var oldFashioned = drinkValue.charAt(drinkValueIndex);
+        //      Moscow Mule
+            var moscowMule = drinkValue.charAt(drinkValueIndex);
+        //      Shot 
+            var shot = drinkValue.charAt(drinkValueIndex);
+        //      Water Variable: Creat a water variable that brings down your score by 1
+            var water = -1;
+
+            var comptuerScore = computerScores.charAt(computerScoreIndex);
+            var userScore = 
+
+        // ARRAYS
+        //          Possible Drink Numbers: array of numbers from 1-7
+            var drinkValues = ["1", "2", "3", "4", "5", "6", "7"];
+        //          Computer Score Variable: array of numbers from 18-50
+            var computerScores = ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50"];
+
+            var computerScoreIndex = computerScores[Math.floor(Math.random() * computerScores.length-1)];
+
+            var drinkValueIndex = drinkValues[Math.floor(Math.random() * drinkValues.length-1)];
+
+        // Ideal Drinking Variable: Have a random number generated ranging from 30-50 as your ideal drinking number
+        // Score Variable: Have a variable created for the total score of these drinks.
+
+        // WINS & LOSES Variable
+                var wins = 0;
+                var loses = 0;
+        //      Successful Nights variable: starting at 0, and increased by 1 when you win
+        //      Unsuccessful Nights variable: starting at 0, and increased when you lose and go over
+
+
+    // Key Scripts to leverage: 
+
+    // TO start the game
+    // 1. Random Math - Random Number between 1-7 for the drink variables, 2. Random Math for the Optimal Drink Number between 30-50, 
+
+    // When the game starts
+    // 3. Click On Command - For when you click on a score is computed, 4. jQuery - Random number generated becomes populated in the Optimal Drinking Division, 5. jQuery - When a drink is selected, that number subtracts from the Random number generated through the jQuery. 
+    
+    // If scenarios:
+    //      If the player matches the random number generated for optimal drinking level, then they win. When they win the number of wins goes up one, and the game resets back to new settings.
+    //      If the drink generated in the console log is over the optimal drinking, then they lose. The loses goes up one and the game resets again
+
+</script>
+
+</body>
+</html>
