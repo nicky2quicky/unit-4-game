@@ -1,0 +1,17 @@
+body{
+    background-color:blanchedalmond;
+    color: blue;
+    text-align: center;
+}
+
+h4{
+    color:orange;
+}
+
+.card-body{
+    padding: 0px;
+    width: 158px;
+    height: 250px;
+    color: teal;
+    
+}
