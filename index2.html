@@ -1,0 +1,249 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Friday Night Drinking Game!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+</head>
+
+<body>
+
+    <h1><strong>Friday Night!</strong></h1>
+    <h3><strong>Congratulations! You've made it to the weekend, friend.</strong></h3>
+    <p>To celebrate, you're hitting up the city going to different bars and drinking with friends. Throughout the night, you will be given a choice of various beverages to achieve your optimal buzz.
+        Be careful of your beverage consumption! If you consume to much alcohol you'll be too drunk to function. If you do not consume enough, you won't be in the right state of mind to have fun.</p>
+
+    <!-- Formatting -->
+    <!-- Create a Jumbotron to list out the Directions
+    Create a Jumbotron centered to show the scores Wins, Loses, Computer Score and then Your Score
+    Use Bootstrap and created a row of 5 cards with a picture of each drink -->
+
+    <button id="start" class="btn btn-success">Start New Game</button>
+    <button id="restart" class="btn btn-warning">Restart</button>
+
+    <br>
+    <br>
+
+    <p id="scores1">Successful Nights!: <span id="wins"></span></p>
+    <p id="scores2">Unsuccessful Nights: <span id="losses"></span></p>
+   
+    <h3><u>Number to Match</u></h3>
+    <h4 id="computer-score"><i>Click start to begin</i></h4>
+    <h3><u>Your Number</u></h3>
+    <h4 id="user-score"><i>Select a drink to start consuming!</i></h4>
+    <h2 id="result">Status</h2>
+
+    <div id="image-div"></div>
+    <div id="play-again"></div>
+    <br>
+    
+
+    
+    <div class="container">
+        <div class="row justify-content-md-center">
+                <!-- Card 1 -->
+                <div class="col col-lg-2">
+                        <div class="card" id="local-ipa">
+                        <div class="card-body">
+                          <h5 class="card-title">Local IPA</h5>
+                          <img src="./assets/images/ipa.jpeg" alt="Local IPA" width=125px height=214px>
+                        </div>
+                      </div>
+                </div>
+                  
+                <div class="col col-lg-2">
+                        <div class="card" id="old-fashioned">
+                                <div class="card-body">
+                                  <h5 class="card-title">Old Fashioned</h5>
+                                  <img src="./assets/images/old.jpg" alt="Old Fashioned" width=150px height=150px>
+                                </div>
+                              </div>
+                </div>
+                        
+                <div class="col col-lg-2">
+                        <div class="card" id="moscow-mule">
+                                <div class="card-body">
+                                  <h5 class="card-title">Moscow Mule</h5>
+                                  <img src="./assets/images/moscow.jpeg" alt="Moscow-Mule" width=125px height=165px>
+                                </div>
+                              </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col col-lg-2">
+                        <div class="card" id="random-shot">
+                                <div class="card-body">
+                                  <h5 class="card-title">Random Shot</h5>
+                                  <img src="./assets/images/shot.jpg" alt="Shot-Glass" width=125px height=214px>
+                                </div>
+                              </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="col col-lg-2">
+                        <div class="card" id="water">
+                                <div class="card-body">
+                                  <h5 class="card-title">Water</h5>
+                                  <img src="./assets/images/water.jpg" alt="Water" width=125px height=214px>
+                                </div>
+                              </div>
+                </div>
+    
+        </div>
+          </div>
+
+    
+
+    
+
+    <script>
+
+    $(document).ready(function() {
+
+          var wins = 0;
+          var losses = 0;
+          var water = -1;
+        
+// // Restart Game function
+//         function restartGame (){
+//         localIpa = Math.floor(Math.random() * 7) + 1;
+//         oldFashioned = Math.floor(Math.random() * 7) + 1;
+//         moscowMule = Math.floor(Math.random() * 7) + 1;
+//         randomShot = Math.floor(Math.random() * 7) + 1;
+//         userScore = 0;
+//         computerScore = Math.floor(Math.random() * 32) + 18;
+//         }
+
+    
+    $("#start").on("click", function () {
+        localIpa = Math.floor(Math.random() * 7) + 1;
+        oldFashioned = Math.floor(Math.random() * 7) + 1;
+        moscowMule = Math.floor(Math.random() * 7) + 1;
+        randomShot = Math.floor(Math.random() * 7) + 1;
+        userScore = 0;
+        $("#user-score").text(userScore);
+        computerScore = Math.floor(Math.random() * 32) + 18;
+        $("#computer-score").text(computerScore);
+        $("#image-div").text("");
+    })
+
+    
+
+    $("#local-ipa").on("click",function () {
+        userScore = userScore + localIpa;
+        $("#user-score").text(userScore);
+
+        if (computerScore === userScore){
+            $("#result").text("Congratluations, you win!");
+            $("#image-div").html("<img src='https://media1.tenor.com/images/abadf9e42c692aa7be85e6f219634aa0/tenor.gif?itemid=9568117' width=150px height=150px>");
+            $("#play-again").text("Well done, friend. Select 'Start New Game' to play again.");
+            wins++;
+            domUpdate();
+            }
+
+        else if (userScore > computerScore){
+          $("#result").text("You're too drunk!!!!");
+          $("#image-div").html("<img src='http://www.reactiongifs.com/r/cut.gif' width=150px height=150px>");
+          $("#play-again").text("51 more Fridays for redemption. Select 'Start New Game' to try again.");
+          losses++;
+          domUpdate();}
+            
+        else {$("#result").text("Cheers! Let's have another!")};
+
+    });
+
+    $("#old-fashioned").on("click",function () {
+        userScore = userScore + oldFashioned;
+        $("#user-score").text(userScore);
+
+        if (computerScore === userScore){
+            $("#result").text("Congratluations, you win!");
+            $("#image-div").html("<img src='https://media3.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif' width=150px height=150px>");
+            $("#play-again").text("Well done, friend. Select 'Start New Game' to play again.");
+            wins++;
+            domUpdate();}
+
+        else if (userScore > computerScore){
+          $("#result").text("You're too drunk!!!!");
+          $("#image-div").html("<img src='https://media.tenor.com/images/494249f09e85096c82cd3acbcae4ea18/tenor.gif' width=150px height=150px>");
+          $("#play-again").text("Can't win um all. Select 'Start New Game' to try again.");
+            losses++;
+            restartGame();
+            domUpdate();}
+
+        else {$("#result").text("Cheers! Let's have another!")};
+
+    });
+
+    $("#moscow-mule").on("click",function () {
+        userScore = userScore + moscowMule;
+        $("#user-score").text(userScore);
+
+        if (computerScore === userScore){
+            $("#result").text("Congratluations, you win!");
+            $("#image-div").html("<img src='https://media1.tenor.com/images/abadf9e42c692aa7be85e6f219634aa0/tenor.gif?itemid=9568117' width=150px height=150px>");
+            $("#play-again").text("Well done, friend. Select 'Start New Game' to play again.");
+            wins++;
+            domUpdate();}
+
+        else if (userScore > computerScore){
+          $("#result").text("You're too drunk!!!!");
+          $("#image-div").html("<img src='http://www.reactiongifs.com/r/cut.gif' width=150px height=150px>");
+          $("#play-again").text("Sleep it off pal...Press 'Start New Game' to try again.");
+          losses++;
+          domUpdate();}
+        
+        else {$("#result").text("Cheers! Let's have another!")};
+
+    });
+
+    $("#random-shot").on("click",function () {
+        userScore = userScore + randomShot;
+        $("#user-score").text(userScore);
+
+        if (computerScore === userScore){
+            $("#result").text("Congratluations, you win!");
+            $("#image-div").html("<img src='http://www.reactiongifs.com/r/wfa.gif' width=150px height=150px>");
+            $("#play-again").text("Well done, friend. Select 'Start New Game' to play again.");
+            wins++;
+            domUpdate();}
+
+        else if (userScore > computerScore){
+          $("#result").text("You're too drunk!!!! - Try Again (Start New Game)");
+          $("#image-div").html("<img src='https://i.gifer.com/10eP.gif' width=150px height=150px>");
+          $("#play-again").text("That's a shame. Select 'Start New Game' to try again.");
+          losses++;
+          domUpdate();}
+        
+        else {$("#result").text("Cheers! Let's have another!")};
+
+    });
+
+    $("#water").on("click",function () {
+        userScore = userScore + water;
+        $("#user-score").text(userScore);
+
+        if (userScore < computerScore){
+          $("#result").text("Good thinking!");
+          $("#image-div").html("<img src='http://gif-finder.com/wp-content/uploads/2015/10/George-Cheers.gif' width=175px height=150px>");}
+        
+        else if (userScore > computerScore){
+            $("#result").text("Recovery mode...");
+        }
+        else {$("#result").text("Ahh, refreshing!")};
+    });
+
+
+    function domUpdate(){
+            document.getElementById("wins").textContent = wins;
+            document.getElementById("losses").textContent = losses;
+        }
+            domUpdate()
+        })
+;
+    </script>
+
+</body>
+</html>
