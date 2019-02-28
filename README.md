@@ -31,4 +31,6 @@ As you select various drinks, be careful to note that value of each drink. To wi
 Each drink is randomly assigned a value between 1-12.
 The computer is randomly generated a number between 19-120.
 
+Note: Please use Index.html as the main file. There were several time the code was broken, and multiple files were created. Index2.html should be the only html file available to open as well. 
+
 Good luck!
