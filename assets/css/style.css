@@ -15,14 +15,16 @@ h4{
     color: teal;
     
 }
-
+h1{
+    font-size: 56px;
+}
 h2{
-    font-family: 'Coiny', cursive;
+    font-family: 'Anton', sans-serif;
     color: palevioletred;
-    font-size: 40px;
+    font-size: 35px;
     text-shadow: 1px 1px black;
     letter-spacing: 1.5px;
-    font-weight: 900;
+    font-weight: 1200;
 }
 
 #scores1{
@@ -32,4 +34,13 @@ h2{
 #scores2{
 
     font-size: 30px;
+}
+
+#play-again{
+    font-size: 22px;
+    color: black;
+}
+
+#header{
+    color: red;
 }
